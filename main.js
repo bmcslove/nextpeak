@@ -53,33 +53,119 @@ const skillsData = [
 ];
 
 // Helper functions
-function createCard(item) {
+function createJourneyCard(item, index) {
   return `
-    <div class="card">
-      <div class="card-image">
-        <img src="${item.image}" alt="${item.name}" class="card-img">
-        <div class="card-overlay"></div>
-        <div class="card-content">
-          <h3 class="card-title">${item.name}</h3>
-          <p class="card-desc">${item.description}</p>
+    <div class="journey-card" data-index="${index}" onclick="openLightbox(${index}, this.closest('.journey-grid-cards').id)">
+      <div class="journey-card-image">
+        <img data-src="${item.image}" alt="${item.name}" class="journey-card-img lazy" loading="lazy">
+        <div class="journey-card-overlay"></div>
+        <div class="journey-card-content">
+          <h3 class="journey-card-title">${item.name}</h3>
+          <p class="journey-card-desc">${item.description}</p>
         </div>
       </div>
     </div>
   `;
 }
 
-function renderCards(container, data) {
-  const row1 = data.slice(0, 4);
-  const row2 = data.slice(4);
+function renderJourneyGrid(container, data, isMobile) {
+  // 移动端只显示前4张
+  const displayData = isMobile ? data.slice(0, 4) : data;
+  container.innerHTML = displayData.map((item, index) => createJourneyCard(item, index)).join('');
   
-  container.innerHTML = `
-    <div class="cards-row">
-      ${row1.map(createCard).join('')}
-    </div>
-    <div class="cards-row">
-      ${row2.map(createCard).join('')}
-    </div>
-  `;
+  // 初始化懒加载
+  initLazyLoad(container);
+}
+
+// 懒加载实现
+function initLazyLoad(container) {
+  const images = container.querySelectorAll('img.lazy');
+  
+  if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src;
+          img.classList.remove('lazy');
+          img.classList.add('loaded');
+          observer.unobserve(img);
+        }
+      });
+    }, {
+      rootMargin: '50px 0px',
+      threshold: 0.01
+    });
+    
+    images.forEach(img => imageObserver.observe(img));
+  } else {
+    // 降级处理：直接加载所有图片
+    images.forEach(img => {
+      img.src = img.dataset.src;
+      img.classList.remove('lazy');
+    });
+  }
+}
+
+// Lightbox functionality
+let currentLightboxImages = [];
+let currentLightboxIndex = 0;
+
+function openLightbox(index, containerId) {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxTitle = document.getElementById('lightbox-title');
+  const lightboxDesc = document.getElementById('lightbox-desc');
+  
+  // 根据容器ID确定使用哪个数据源
+  if (containerId === 'scenery-grid') {
+    currentLightboxImages = sceneryData;
+  } else {
+    currentLightboxImages = journeyData;
+  }
+  
+  currentLightboxIndex = index;
+  const item = currentLightboxImages[index];
+  
+  lightboxImg.src = item.image;
+  lightboxImg.alt = item.name;
+  lightboxTitle.textContent = item.name;
+  lightboxDesc.textContent = item.description;
+  
+  lightbox.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  const lightbox = document.getElementById('lightbox');
+  lightbox.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function prevImage() {
+  currentLightboxIndex = (currentLightboxIndex - 1 + currentLightboxImages.length) % currentLightboxImages.length;
+  updateLightboxImage();
+}
+
+function nextImage() {
+  currentLightboxIndex = (currentLightboxIndex + 1) % currentLightboxImages.length;
+  updateLightboxImage();
+}
+
+function updateLightboxImage() {
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxTitle = document.getElementById('lightbox-title');
+  const lightboxDesc = document.getElementById('lightbox-desc');
+  const item = currentLightboxImages[currentLightboxIndex];
+  
+  lightboxImg.style.opacity = '0';
+  setTimeout(() => {
+    lightboxImg.src = item.image;
+    lightboxImg.alt = item.name;
+    lightboxTitle.textContent = item.name;
+    lightboxDesc.textContent = item.description;
+    lightboxImg.style.opacity = '1';
+  }, 150);
 }
 
 function createSkillCard(skill) {
@@ -104,14 +190,52 @@ function renderSkills(container) {
 
 // Initialize
 function init() {
-  // Render cards
-  const sceneryContainer = document.getElementById('scenery-container');
-  const journeyContainer = document.getElementById('journey-container');
+  // Detect mobile
+  const isMobile = window.innerWidth < 768;
+  
+  // Render journey grids
+  const sceneryGrid = document.getElementById('scenery-grid');
+  const journeyGrid = document.getElementById('journey-grid');
   const skillsContainer = document.getElementById('skills-cards');
   
-  if (sceneryContainer) renderCards(sceneryContainer, sceneryData);
-  if (journeyContainer) renderCards(journeyContainer, journeyData);
+  if (sceneryGrid) renderJourneyGrid(sceneryGrid, sceneryData, isMobile);
+  if (journeyGrid) renderJourneyGrid(journeyGrid, journeyData, isMobile);
   if (skillsContainer) renderSkills(skillsContainer);
+  
+  // Lightbox event listeners
+  const lightbox = document.getElementById('lightbox');
+  const lightboxClose = document.getElementById('lightbox-close');
+  const lightboxPrev = document.getElementById('lightbox-prev');
+  const lightboxNext = document.getElementById('lightbox-next');
+  
+  if (lightboxClose) {
+    lightboxClose.addEventListener('click', closeLightbox);
+  }
+  
+  if (lightboxPrev) {
+    lightboxPrev.addEventListener('click', prevImage);
+  }
+  
+  if (lightboxNext) {
+    lightboxNext.addEventListener('click', nextImage);
+  }
+  
+  if (lightbox) {
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+  }
+  
+  // Keyboard navigation for lightbox
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox || !lightbox.classList.contains('active')) return;
+    
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') prevImage();
+    if (e.key === 'ArrowRight') nextImage();
+  });
   
   // Mobile menu toggle
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -128,12 +252,6 @@ function init() {
       });
     });
   }
-  
-  // Scroll controls for scenery
-  setupScrollControls('scenery-container', 'scroll-left-1', 'scroll-right-1');
-  
-  // Scroll controls for journey
-  setupScrollControls('journey-container', 'scroll-left-2', 'scroll-right-2');
   
   // Smooth scroll for navigation
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -169,33 +287,6 @@ function init() {
   document.querySelectorAll('section').forEach(section => {
     observer.observe(section);
   });
-}
-
-function setupScrollControls(containerId, leftBtnId, rightBtnId) {
-  const container = document.getElementById(containerId);
-  const leftBtn = document.getElementById(leftBtnId);
-  const rightBtn = document.getElementById(rightBtnId);
-  
-  if (!container || !leftBtn || !rightBtn) return;
-  
-  const scrollAmount = 260;
-  
-  leftBtn.addEventListener('click', () => {
-    container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-  });
-  
-  rightBtn.addEventListener('click', () => {
-    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-  });
-  
-  const updateButtons = () => {
-    const { scrollLeft, scrollWidth, clientWidth } = container;
-    leftBtn.style.opacity = scrollLeft > 0 ? '1' : '0.3';
-    rightBtn.style.opacity = scrollLeft < scrollWidth - clientWidth - 10 ? '1' : '0.3';
-  };
-  
-  container.addEventListener('scroll', updateButtons);
-  updateButtons();
 }
 
 // Run on DOM ready

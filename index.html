@@ -13,7 +13,10 @@
     <!-- Navigation -->
     <nav class="nav">
       <div class="nav-container">
-        <a href="#" class="nav-logo">NextPeak-张雄个人网站</a>
+        <a href="#" class="nav-logo">
+          <img src="assets/logo.jpg" alt="NextPeak Logo" class="nav-logo-img">
+          <span class="nav-logo-text">NextPeak</span>
+        </a>
         <div class="nav-links">
           <a href="#about" class="nav-link">关于我</a>
           <a href="#skills" class="nav-link">探索</a>
@@ -39,7 +42,7 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-bg">
-        <img src="assets/微信图片_20260316231959.jpg" alt="Hero Background" class="hero-img">
+        <img src="assets/58d407bc5f3974c596cecbb25f09d53.jpg" alt="Hero Background" class="hero-img">
         <div class="hero-overlay"></div>
       </div>
       
@@ -61,34 +64,74 @@
 
     <!-- About Section -->
     <section id="about" class="section">
-      <div class="container">
-        <div class="about-grid">
-          <div class="about-image animate-fade-in">
-            <img src="assets/9893617ee372c3910aa7ec72fc243b7.jpg" alt="Profile" class="profile-img">
-          </div>
-          <div class="about-content">
-            <h2 class="section-title">你好，我是<span class="gradient-text">张雄</span></h2>
-            <p class="about-text">
-              土生土长的恩施人，携程金牌旅游规划师，熟悉恩施每一处山水的魅力。
-              无论是恩施大峡谷的壮丽，还是土司城的厚重，我都能为您量身定制最地道的旅行体验。
-            </p>
-            <p class="about-text">
-              持有焊工证、高空作业证、特种设备操作证，专注于隧道幕墙施工，以精湛技术保障工程质量。
-              同时提供企业官网运维、自媒体运营、电商平台搭建等一站式数字化服务，
-              助力企业线上品牌建设。热爱摩旅与摄影，足迹遍布川藏、新藏等经典线路。
-            </p>
-            <div class="stats">
-              <div class="stat-item">
-                <div class="stat-value gradient-text">15+</div>
-                <div class="stat-label">专业技能</div>
+      <div class="section-bg">
+        <img src="assets/bg-about.jpg" alt="" class="section-bg-img" loading="lazy">
+        <div class="section-bg-overlay"></div>
+      </div>
+      <div class="section-content">
+        <div class="container">
+          <div class="about-grid">
+            <div class="about-image animate-fade-in">
+              <img src="assets/9893617ee372c3910aa7ec72fc243b7.jpg" alt="Profile" class="profile-img">
+            </div>
+            <div class="about-content">
+              <div class="about-tag">旅游规划师 · 技术工匠 · 摩旅爱好者</div>
+              <h2 class="section-title">你好，我是<span class="gradient-text">张雄</span></h2>
+              <p class="about-text">
+                <strong>摩旅路上的追风者</strong>，川藏线、新藏线、独库公路...用镜头记录壮美山河，
+                用车轮丈量祖国大地，在路上找寻生命的另一种可能。
+              </p>
+              <p class="about-text">
+                <strong>数字化服务提供者</strong>，提供企业官网运维、自媒体运营、电商平台搭建等一站式解决方案，
+                帮助传统企业在数字化浪潮中稳步前行。
+              </p>
+              <p class="about-text">
+                <strong>恩施土生土长的旅行向导</strong>，深耕家乡旅游资源多年，携程金牌认证规划师。
+                从大峡谷的云海日出到土司城的千年沧桑，我熟悉这片土地的每一处惊喜，
+                致力于为每位游客打造独一无二的恩施记忆。
+              </p>
+              <p class="about-text">
+                <strong>持证上岗的技术工匠</strong>，手握焊工证、高空作业证、特种设备操作证。
+                在隧道幕墙施工领域深耕细作，用严谨的工艺和负责任的态度，确保每一个工程项目的安全与品质。
+              </p>
+              <div class="about-highlights">
+                <div class="highlight-item">
+                  <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                  <span>恩施</span>
+                </div>
+                <div class="highlight-item">
+                  <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                  </svg>
+                  <span>专业认证</span>
+                </div>
+                <div class="highlight-item">
+                  <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                    <line x1="9" y1="9" x2="9.01" y2="9"/>
+                    <line x1="15" y1="9" x2="15.01" y2="9"/>
+                  </svg>
+                  <span>热情靠谱</span>
+                </div>
               </div>
-              <div class="stat-item">
-                <div class="stat-value gradient-text">10W+</div>
-                <div class="stat-label">骑行公里</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-value gradient-text">∞</div>
-                <div class="stat-label">热爱生活</div>
+              <div class="stats">
+                <div class="stat-item">
+                  <div class="stat-value gradient-text">15+</div>
+                  <div class="stat-label">专业技能</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value gradient-text">10W+</div>
+                  <div class="stat-label">骑行公里</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value gradient-text">∞</div>
+                  <div class="stat-label">热爱生活</div>
+                </div>
               </div>
             </div>
           </div>
@@ -97,46 +140,28 @@
     </section>
 
     <!-- Journey Section -->
-    <section id="skills" class="section section-gray">
-      <div class="container">
-        <h2 class="section-title text-center">在途<span class="gradient-text">中</span></h2>
-        <p class="section-subtitle">记录旅途中的每一个精彩瞬间</p>
+    <section id="skills" class="section">
+      <div class="section-bg">
+        <img src="assets/bg-journey.jpg" alt="" class="section-bg-img">
+        <div class="section-bg-overlay"></div>
       </div>
-      
-      <div class="journey-grid">
-        <!-- 风景 -->
-        <div class="journey-column">
-          <h3 class="journey-title gradient-text">风景</h3>
-          <div class="journey-container">
-            <div class="scroll-btn scroll-left hidden-md" id="scroll-left-1">
-              <svg class="icon-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-              </svg>
+      <div class="section-content">
+        <div class="container">
+          <h2 class="section-title text-center">在途<span class="gradient-text">中</span></h2>
+          <p class="section-subtitle">记录旅途中的每一个精彩瞬间</p>
+          
+          <div class="journey-section">
+            <!-- 风景 -->
+            <div class="journey-block">
+              <h3 class="journey-title gradient-text">风景</h3>
+              <div id="scenery-grid" class="journey-grid-cards"></div>
             </div>
-            <div class="scroll-btn scroll-right hidden-md" id="scroll-right-1">
-              <svg class="icon-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
+            
+            <!-- 旅途 -->
+            <div class="journey-block">
+              <h3 class="journey-title gradient-text">旅途</h3>
+              <div id="journey-grid" class="journey-grid-cards"></div>
             </div>
-            <div id="scenery-container" class="cards-container"></div>
-          </div>
-        </div>
-        
-        <!-- 旅途 -->
-        <div class="journey-column">
-          <h3 class="journey-title gradient-text">旅途</h3>
-          <div class="journey-container">
-            <div class="scroll-btn scroll-left hidden-md" id="scroll-left-2">
-              <svg class="icon-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-              </svg>
-            </div>
-            <div class="scroll-btn scroll-right hidden-md" id="scroll-right-2">
-              <svg class="icon-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </div>
-            <div id="journey-container" class="cards-container"></div>
           </div>
         </div>
       </div>
@@ -144,25 +169,50 @@
 
     <!-- Skills Section -->
     <section id="projects" class="section">
-      <div class="container">
-        <h2 class="section-title text-center">个人<span class="gradient-text">技能</span></h2>
-        <div id="skills-cards" class="skills-grid"></div>
+      <div class="section-bg">
+        <img src="assets/bg-skills.jpg" alt="" class="section-bg-img">
+        <div class="section-bg-overlay"></div>
+      </div>
+      <div class="section-content">
+        <div class="container">
+          <h2 class="section-title text-center">个人<span class="gradient-text">技能</span></h2>
+          <div id="skills-cards" class="skills-grid"></div>
+        </div>
       </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section section-gray">
-      <div class="container container-sm">
-        <h2 class="section-title text-center">联系<span class="gradient-text">我</span></h2>
-        <p class="contact-subtitle">欢迎通过以下方式与我联系</p>
-        <div class="contact-card">
-          <img src="assets/10f70c24db64188edbf9f37e9c6cf5c.jpg" alt="微信二维码" class="qrcode">
-          <p class="contact-label">
-            <svg class="icon-sm text-green" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 01.213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 00.167-.054l1.903-1.114a.864.864 0 01.717-.098 10.16 10.16 0 002.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 01-1.162 1.178A1.17 1.17 0 014.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 01-1.162 1.178 1.17 1.17 0 01-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 01.598.082l1.584.926a.272.272 0 00.14.047c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.49.49 0 01.176-.554C23.087 18.615 24 16.893 24 14.929c0-3.367-3.056-6.01-7.062-6.071zM13.57 13.72c.535 0 .969.44.969.982a.976.976 0 01-.969.983.976.976 0 01-.969-.983c0-.542.434-.982.97-.982zm4.844 0c.535 0 .969.44.969.982a.976.976 0 01-.969.983.976.976 0 01-.969-.983c0-.542.434-.982.969-.982z"/>
-            </svg>
-            扫码添加微信
-          </p>
+    <section id="contact" class="section">
+      <div class="section-bg">
+        <img src="assets/bg-contact.jpg" alt="" class="section-bg-img">
+        <div class="section-bg-overlay"></div>
+      </div>
+      <div class="section-content">
+        <div class="container container-sm">
+          <h2 class="section-title text-center">联系<span class="gradient-text">我</span></h2>
+          <p class="contact-subtitle">欢迎通过以下方式与我联系</p>
+          <div class="contact-cards">
+            <!-- 微信二维码 -->
+            <div class="contact-card">
+              <img src="assets/10f70c24db64188edbf9f37e9c6cf5c.jpg" alt="微信二维码" class="qrcode">
+              <p class="contact-label">
+                <svg class="icon-sm text-green" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 01.213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 00.167-.054l1.903-1.114a.864.864 0 01.717-.098 10.16 10.16 0 002.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 01-1.162 1.178A1.17 1.17 0 014.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 01-1.162 1.178 1.17 1.17 0 01-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 01.598.082l1.584.926a.272.272 0 00.14.047c.134 0 .24-.111.24-.247 0-.06-.023-.12-.038-.177l-.327-1.233a.49.49 0 01.176-.554C23.087 18.615 24 16.893 24 14.929c0-3.367-3.056-6.01-7.062-6.071zM13.57 13.72c.535 0 .969.44.969.982a.976.976 0 01-.969.983.976.976 0 01-.969-.983c0-.542.434-.982.97-.982zm4.844 0c.535 0 .969.44.969.982a.976.976 0 01-.969.983.976.976 0 01-.969-.983c0-.542.434-.982.969-.982z"/>
+                </svg>
+                扫码添加微信
+              </p>
+            </div>
+            <!-- 抖音二维码 -->
+            <div class="contact-card">
+              <img src="assets/02c1f76dcf9829d09bb0375654ec8e9.jpg" alt="抖音二维码" class="qrcode">
+              <p class="contact-label">
+                <svg class="icon-sm" style="color: #000000;" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
+                </svg>
+                关注抖音
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -170,8 +220,8 @@
     <!-- Footer -->
     <footer class="footer">
       <div class="footer-content">
-        <div class="footer-title gradient-text">NextPeak-张雄个人网站</div>
-        <p class="footer-copyright">© 2024 NextPeak.cn. All rights reserved.</p>
+        <div class="footer-title gradient-text">NextPeak-或许自有更胜一筹</div>
+        <p class="footer-copyright">© 2026 NextPeak.cn. All rights reserved.</p>
         <div class="footer-links">
           <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" class="footer-link">
             鄂ICP备2025101489号-1
@@ -187,5 +237,31 @@
   </div>
 
   <script src="main.js"></script>
+  
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <button id="lightbox-close" class="lightbox-close">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+    <button id="lightbox-prev" class="lightbox-nav lightbox-prev">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+      </svg>
+    </button>
+    <button id="lightbox-next" class="lightbox-nav lightbox-next">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+      </svg>
+    </button>
+    <div class="lightbox-content">
+      <img id="lightbox-img" class="lightbox-img" src="" alt="">
+      <div class="lightbox-info">
+        <h3 id="lightbox-title" class="lightbox-title"></h3>
+        <p id="lightbox-desc" class="lightbox-desc"></p>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
